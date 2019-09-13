@@ -122,6 +122,20 @@
       if(rand.id !== sector.id
         && !sector.outlinks.includes(rand.id)
         && rand.outlinks.length <= rand.warpsQuota) 
+      // if(rand.id !== sector.id) {
+      //   if(!sector.outlinks.includes(rand.id)) {
+      //     if(rand.outlinks.length <= rand.warpsQuota) {
+      //       console.log(`@@@@@@@@@@@@@@@@@       sector [[[ ${sector.id} ]]] warp ### ${rand.id} ###  passed all tests  @@@@@@@@@@@@@@@@@@@@`)
+      //       warps.push(rand.id)
+      //       warps.sort()
+      //       console.log(`Warps array currently: ${warps}`)
+      //       sector.outlinks = warps
+      //       sector.inlinks = warps
+      //       count--
+      //       overflow = 0
+      //     }
+      //   }
+      // }
       {
         console.log(`@@@@@@@@@@@@@@@@@       sector [[[ ${sector.id} ]]] warp ### ${rand.id} ###  passed all tests  @@@@@@@@@@@@@@@@@@@@`)
         if(rand.id !== sector.id) {console.log(`rand.id ${rand.id} !== sector.id ${sector.id} --- ${rand.id !== sector.id}`)}
@@ -149,7 +163,7 @@
         if(rand.outlinks.length > rand.warpsQuota) 
           {
             console.log(`rand.outlinks.length ${rand.outlinks.length} > rand.warpsQuota ${rand.warpsQuota} --- ${rand.outlinks.length > rand.warpsQuota}`)
-            sector.outlinks = []
+            rand.outlinks = []
             }
         console.log('\n\n')
         
@@ -294,16 +308,16 @@
     </button>
     <button id="generate-links" on:click={loadGalaxy}>Load Local Galaxy</button>
     <button id="start-game">Start Game</button>
-      <div id="controls" class="section group">
-        <div class="col">
-                <label for="galSize">Galaxy size:
-          <input type="number" value="10" name="galSize" id="galSize" /></label>
-          <label for="warpsMin">Min warps:
-          <input type="number" value="2" name="warpsMin" id="warpsMin" /></label>
-          <label for="warpsMin">Max warps:
-          <input type="number" value="6" name="warpsMax" id="warpsMax" /></label>
-        </div>
+    <div id="controls" class="section group">
+      <div class="col">
+              <label for="galSize">Galaxy size:
+        <input type="number" value="10" name="galSize" id="galSize" /></label>
+        <label for="warpsMin">Min warps:
+        <input type="number" value="2" name="warpsMin" id="warpsMin" /></label>
+        <label for="warpsMin">Max warps:
+        <input type="number" value="6" name="warpsMax" id="warpsMax" /></label>
       </div>
+    </div>
 
   </div>
 <!-- {#if process.browser} -->
